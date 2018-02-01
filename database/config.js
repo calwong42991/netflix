@@ -3,7 +3,7 @@ const pgp = require('pg-promise')();
 const config = {
   host: 'localhost',
   port: 5432,
-  database: ''
+  database: 'netflix',
   user: 'calvinw',
   password: 'calvinwong',
 };
