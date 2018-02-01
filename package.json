@@ -1,0 +1,27 @@
+{
+  "name": "netflix",
+  "version": "1.0.0",
+  "description": "netflix user microservice",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "nodemon server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/calwong42991/netflix.git"
+  },
+  "author": "calvin wong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/calwong42991/netflix/issues"
+  },
+  "homepage": "https://github.com/calwong42991/netflix#readme",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "faker": "^4.1.0",
+    "pg-promise": "^7.4.1"
+  }
+}
