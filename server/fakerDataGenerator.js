@@ -38,7 +38,7 @@ const randomPreferences = function(){
 
 const generateUsers = function() {
   var fake = [];
-  for(var i = 0; i < 500000; i++){
+  for(var i = 0; i < 1000000; i++){
     var obj = {};
     obj.profile_name = faker.internet.userName();
     obj.password = faker.internet.password();
@@ -47,7 +47,6 @@ const generateUsers = function() {
     obj.preferences = faker.random.arrayElement(preferences);
     fake.push(obj);
   }
-
   db.Users.create(fake);
 }
 
@@ -65,6 +64,6 @@ const generateUsers = function() {
 //
 // }
 
-generateUsers()
+db.Users.create();
 
 module.exports.generateUsers = generateUsers;

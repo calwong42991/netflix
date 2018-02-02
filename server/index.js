@@ -10,7 +10,6 @@ app.use(bodyParser.json());
 
 
 app.get('/', (req, res) => {
-
   res.send('WE HERE');
 })
 

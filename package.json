@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha",
     "start": "nodemon server/index.js",
-    "initdb": "psql postgres -U calvinw < schema.sql"
+    "initdb": "psql postgres -U calvinw < schema.sql",
+    "fix-memory-limit": "cross-env LIMIT=2048 increase-memory-limit"
   },
   "repository": {
     "type": "git",
@@ -21,9 +22,13 @@
   "dependencies": {
     "axios": "^0.17.1",
     "body-parser": "^1.18.2",
+    "cross-env": "^5.0.5",
     "express": "^4.16.2",
     "faker": "^4.1.0",
     "file-system": "^2.2.2",
-    "pg-promise": "^7.4.1"
+    "increase-memory-limit": "^1.0.6",
+    "pg-copy-streams": "^1.2.0",
+    "pg-promise": "^7.4.1",
+    "spex": "^2.0.2"
   }
 }
