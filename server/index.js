@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios');
-const fakeData = require('./fakerDataGenerator.js');
+const fakeData = require('../database/generateFakeData.js');
 
 const app = express();
 
