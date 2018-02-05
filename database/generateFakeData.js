@@ -148,6 +148,11 @@ class Fake {
     .then((data) => {
       console.log('success, all fake user_profile data inserted');
       console.log(`Total batches: ${data.total}, Duration: ${data.duration}`);
+
+      const queryString = 'CREATE INDEX user_profile_index ON user_profile USING btree (user_id);';
+      return db.any(queryString)
+      .then((data) => {console.log(data, 'user_profile_index created')})
+      .catch((err) => { console.log('ERROR', err)})
     })
     .catch((err) => {
       console.log('error', err);
@@ -169,6 +174,12 @@ class Fake {
     .then((data) => {
       console.log('success, all fake video_saved data inserted');
       console.log(`Total batches: ${data.total}, Duration: ${data.duration}`);
+
+      const queryString = 'CREATE INDEX video_saved_index ON video_saved USING btree (user_id);';
+      return db.any(queryString)
+      .then((data) => {console.log(data, 'video_saved_index created')})
+      .catch((err) => { console.log('ERROR', err)})
+
     })
     .catch((err) => {
       console.log('error', err);
@@ -190,6 +201,12 @@ class Fake {
     .then((data) => {
       console.log('success, all fake video_watched data inserted');
       console.log(`Total batches: ${data.total}, Duration: ${data.duration}`);
+
+      const queryString = 'CREATE INDEX video_watched_index ON video_watched USING btree (user_id);';
+      return db.any(queryString)
+      .then((data) => {console.log(data, 'video_watched_index created')})
+      .catch((err) => { console.log('ERROR', err)})
+
     })
     .catch((err) => {
       console.log('error', err);

@@ -1,0 +1,60 @@
+netflix=# select * from user_profile LIMIT 1;
+ user_id | profile_name  |    password     |      email       |   region   | preferences
+---------+---------------+-----------------+------------------+------------+-------------
+       1 | Johnny_Kris49 | 5tnoFYg3OwG_q6q | Clyde7@yahoo.com | Antarctica | action
+(1 row)
+
+netflix=# select * from video_saved LIMIT 1;
+ user_id | video_id |        saved_time
+---------+----------+--------------------------
+  266118 |   349163 | 1 hour 22 min 54 seconds
+(1 row)
+
+netflix=# EXPLAIN ANALYZE select * from video_saved LIMIT 1;
+                                                      QUERY PLAN
+----------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=0.00..0.02 rows=1 width=32) (actual time=0.050..0.050 rows=1 loops=1)
+   ->  Seq Scan on video_saved  (cost=0.00..54238.00 rows=3000000 width=32) (actual time=0.049..0.049 rows=1 loops=1)
+ Planning time: 0.357 ms
+ Execution time: 0.103 ms
+(4 rows)
+
+netflix=# EXPLAIN ANALYZE select * from video_watched LIMIT 1;
+                                                       QUERY PLAN
+------------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=0.00..0.02 rows=1 width=16) (actual time=2.163..2.164 rows=1 loops=1)
+   ->  Seq Scan on video_watched  (cost=0.00..46217.00 rows=3000000 width=16) (actual time=2.162..2.162 rows=1 loops=1)
+ Planning time: 0.506 ms
+ Execution time: 2.211 ms
+(4 rows)
+
+netflix=# CREATE INDEX video_watched_index ON video_watched USING btree (user_id);
+ERROR:  relation "video_watched_index" already exists
+netflix=# EXPLAIN ANALYZE select * from video_watched LIMIT 1;
+                                                       QUERY PLAN
+------------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=0.00..0.02 rows=1 width=16) (actual time=0.014..0.014 rows=1 loops=1)
+   ->  Seq Scan on video_watched  (cost=0.00..46217.00 rows=3000000 width=16) (actual time=0.013..0.013 rows=1 loops=1)
+ Planning time: 0.057 ms
+ Execution time: 0.031 ms
+(4 rows)
+
+netflix=# EXPLAIN ANALYZE select * from user_profile LIMIT 1;
+                                                      QUERY PLAN
+-----------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=0.00..0.02 rows=1 width=73) (actual time=1.220..1.220 rows=1 loops=1)
+   ->  Seq Scan on user_profile  (cost=0.00..92596.17 rows=4000017 width=73) (actual time=1.218..1.218 rows=1 loops=1)
+ Planning time: 0.489 ms
+ Execution time: 1.248 ms
+(4 rows)
+
+netflix=# CREATE INDEX user_profile_index ON user_profile USING btree (user_id);
+ERROR:  relation "user_profile_index" already exists
+netflix=# EXPLAIN ANALYZE select * from user_profile LIMIT 1;
+                                                      QUERY PLAN
+-----------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=0.00..0.02 rows=1 width=73) (actual time=0.012..0.012 rows=1 loops=1)
+   ->  Seq Scan on user_profile  (cost=0.00..92596.17 rows=4000017 width=73) (actual time=0.011..0.011 rows=1 loops=1)
+ Planning time: 0.072 ms
+ Execution time: 0.042 ms
+(4 rows)

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha",
     "start": "nodemon server/index.js",
-    "initdb": "psql postgres -U calvinw < schema.sql",
+    "initdb": "psql postgres -U calvinw < schemaTest.sql",
     "fix-memory-limit": "cross-env LIMIT=2048 increase-memory-limit"
   },
   "repository": {
