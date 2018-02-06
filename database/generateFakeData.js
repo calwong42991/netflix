@@ -4,63 +4,8 @@ const streamRead = pgp.spex.stream.read;
 const faker = require('faker');
 
 const csUser = pgp.helpers.ColumnSet(['profile_name', 'password', 'email', 'region', 'preferences'], {table: 'user_profile' });
-
 const csSaved = pgp.helpers.ColumnSet(['user_id','video_id', 'saved_time'], {table: 'video_saved' });
-
 const csWatched = pgp.helpers.ColumnSet(['user_id', 'video_id', 'rating'], {table: 'video_watched' });
-
-/*
-const getNextData = function(t, index, data) {
-
-  return new Promise((resolve, reject) => {
-    if(index === 0){
-      resolve({data, nextPageInfo: data});
-    } else {
-      resolve(null);
-    }
-  });
-}
-
-class Users {
-  static create(arr) {
-    db.task('massive-insert', t => {
-      return t.sequence(index => {
-        return getNextData(t, index, arr)
-        .then((a) => {
-          if(a){
-            const query = pgp.helpers.insert(a.data, cs);
-            return t.none(query).then(() => a.nextPageInfo);
-          }
-        });
-      });
-    })
-    .then((data) => {
-      console.log('success, all records inserted');
-      console.log(`Total batches: ${data.total}, Duration: ${data.duration}`);
-    })
-    .catch((err) => {
-      console.log('error', err);
-    })
-  }
-}
-*/
-
-/*
-class Users {
-  static create(arr) {
-    db.task('inserting-products', t => {
-      const query = pgp.helpers.insert(arr, cs);
-      return t.none(query);
-    })
-    .then(() => {
-      console.log('success, all records inserted');
-    })
-    .catch((err) => {
-      console.log('error', err);
-    })
-  }
-}
-*/
 
 var region = [
   'Africa',
@@ -215,3 +160,56 @@ class Fake {
 }
 
 module.exports = Fake;
+
+/*
+const getNextData = function(t, index, data) {
+
+  return new Promise((resolve, reject) => {
+    if(index === 0){
+      resolve({data, nextPageInfo: data});
+    } else {
+      resolve(null);
+    }
+  });
+}
+
+class Users {
+  static create(arr) {
+    db.task('massive-insert', t => {
+      return t.sequence(index => {
+        return getNextData(t, index, arr)
+        .then((a) => {
+          if(a){
+            const query = pgp.helpers.insert(a.data, cs);
+            return t.none(query).then(() => a.nextPageInfo);
+          }
+        });
+      });
+    })
+    .then((data) => {
+      console.log('success, all records inserted');
+      console.log(`Total batches: ${data.total}, Duration: ${data.duration}`);
+    })
+    .catch((err) => {
+      console.log('error', err);
+    })
+  }
+}
+*/
+
+/*
+class Users {
+  static create(arr) {
+    db.task('inserting-products', t => {
+      const query = pgp.helpers.insert(arr, cs);
+      return t.none(query);
+    })
+    .then(() => {
+      console.log('success, all records inserted');
+    })
+    .catch((err) => {
+      console.log('error', err);
+    })
+  }
+}
+*/

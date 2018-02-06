@@ -11,7 +11,7 @@ insert Fake Data into database
   	⁃	real	1m39.788s
   	⁃	user	1m45.885s
   	⁃	sys	0m1.722s
-	4.	1m uses no crash
+	4.	1m users no crash
   	⁃	real	1m42.475s
   	⁃	user	0m27.830s
   	⁃	sys	0m1.281s

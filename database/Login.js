@@ -13,7 +13,6 @@ class Login {
     const queryAuth = `SELECT user_id FROM user_profile WHERE profile_name = $1 AND password = $2`;
     return db.any(queryAuth, [profile_name, password])
     .then((data) => {
-      console.log('User Id ', data[0]);
       return data[0]
     })
     .catch((err) => {console.log('ERROR', err)});
@@ -27,10 +26,9 @@ class Login {
   }
 
   static getVideoSaved({user_id}){
-    const queryVideoSaved = `SELECT video_id, saved_time FROM video_saved WHERE user_id = $1`;
+    const queryVideoSaved = `SELECT * FROM video_saved WHERE user_id = $1`;
     return db.any(queryVideoSaved, [user_id])
     .then((data) => {
-      console.log('Video Saved Data ', data);
       return data;
     })
     .catch((err) => {console.log(err)});
@@ -40,26 +38,27 @@ class Login {
     const queryVideoWatched = `SELECT video_id FROM video_watched WHERE user_id = $1`;
     return db.any(queryVideoWatched, [user_id])
     .then((data) => {
-      console.log('Video Watched Data ', data)
       return data
     })
     .catch((err) => {console.log(err)});
   }
 
-  static login(data) {
-    this.updateRegion(data),
-    this.authenticate(data)
-    .then((data) => {
-      Promise.all([this.getVideoSaved(data), this.getVideoWatched(data)])
+  static login(obj) {
+    this.updateRegion(obj),
+    this.authenticate(obj)
+    .then((userId) => {
+      Promise.all([this.getVideoSaved(userId), this.getVideoWatched(userId)])
       .then((data) => {
         console.log('Data to send back to Client Facing Service ', data);
       })
       .catch((err) => {
         console.log('INNER ERROR')
+        return err;
       })
     })
     .catch((err) => {
       console.log('OUTTER ERROR');
+      return err;
     })
   }
 }

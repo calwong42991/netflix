@@ -20,15 +20,20 @@
   },
   "homepage": "https://github.com/calwong42991/netflix#readme",
   "dependencies": {
+    "artillery": "^1.6.0-12",
     "axios": "^0.17.1",
+    "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
     "cross-env": "^5.0.5",
     "express": "^4.16.2",
     "faker": "^4.1.0",
     "file-system": "^2.2.2",
     "increase-memory-limit": "^1.0.6",
+    "moment": "^2.20.1",
+    "newrelic": "^2.7.0",
     "pg-copy-streams": "^1.2.0",
     "pg-promise": "^7.4.1",
+    "redis": "^2.8.0",
     "spex": "^2.0.2"
   }
 }
