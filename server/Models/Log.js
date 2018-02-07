@@ -1,12 +1,12 @@
 const redis = require('../../Cache/redis.js');
 
 class Log {
-  static login (obj) {
-    return redis.login(obj);
+  static login ({user_id, region}) {
+    return redis.login({user_id, region});
   }
 
-  static logout(obj){
-    return redis.logout(obj);
+  static logout({user_id, region}){
+    return redis.logout({user_id, region});
   }
 
   static getLog(){

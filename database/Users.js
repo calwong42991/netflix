@@ -4,8 +4,8 @@ const pgp = require('pg-promise')();
 const cs = pgp.helpers.ColumnSet(['profile_name', 'password', 'email', 'region', 'preferences'], {table: 'user_profile' });
 
 class Users {
-  static create (data) {
-    const query = pgp.helpers.insert(data, cs);
+  static create ({user_id, profile_name, password, email, region, preferences}) {
+    const query = pgp.helpers.insert({user_id, profile_name, password, email, region, preferences}, cs);
     return db.any(query)
     .then(() => {console.log('INSERTED A NEW USER')})
     .catch((err) => {console.log('ERROR', err)});
