@@ -13,9 +13,21 @@ class Saved {
 
   static updateSavedTime({user_id, video_id, saved_time}) {
     const queryUpdate = pgp.helpers.update({user_id, video_id, saved_time}, ['saved_time'], 'video_saved') + ` WHERE user_id = $1`;
-    return db.any(queryUpdate, [data.user_id])
+    return db.any(queryUpdate, [user_id])
     .then(() => {console.log('UPDATED')})
     .catch((err) => {console.log('ERROR', err)});
+  }
+
+  static getAllVideoSaved ({user_id}) {
+    const queryGetAll = 'SELECT * FROM video_saved WHERE user_id = $1';
+    return db.any(queryGetAll, [user_id])
+      .then((data) => {
+        return data
+      })
+      .catch((error) => {
+        console.log(error)
+        return error
+      })
   }
 }
 

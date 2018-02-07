@@ -17,6 +17,18 @@ class Users {
     .then((data) => {console.log(data)})
     .catch((err) => {console.log('Error'. err)});
   }
+
+  static getUser ({user_id}) {
+    const query = 'SELECT user_id, region FROM user_profile WHERE user_id = $1';
+    return db.any(query, [user_id])
+    .then((data) => {
+      const User = {User: data};
+      return User;
+    })
+    .catch((error) => {
+      return error
+    });
+  }
 }
 
 module.exports = Users;

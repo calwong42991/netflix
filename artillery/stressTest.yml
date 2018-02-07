@@ -1,0 +1,48 @@
+config:
+  target: "http://localhost:1337/api"
+  phases:
+    - duration: 10
+      arrivalRate: 20
+  # defaults:
+  #   headers:
+  #     x-my-service-auth: '987401838271002188298567'
+  processor: './fakeDataGeneration.js'
+scenarios:
+  - name: 'Add User'
+    flow:
+      - function: 'generateUser'
+      - post:
+          url: '/signup'
+          count: 10
+          json:
+            profile_name: '{{ profile_name }}'
+            password: '{{ password }}'
+            email: '{{ email }}'
+            region: '{{ region }}'
+            preferences: '{{ preferences }}'
+      - post:
+          url: '/login'
+          count: 10
+          json:
+            profile_name: '{{ profile_name }}'
+            password: '{{ password }}'
+
+  - name: 'Login'
+    flow:
+      - function: 'generateFakeLog'
+      - post:
+          url: '/login/redis'
+          count: 10
+          json:
+            user_id: '{{ user_id }}'
+            region: '{{ region }}'
+
+  - name: 'Logout'
+    flow:
+      - function: 'generateFakeLog'
+      - post:
+          url: '/logout/redis'
+          count: 10
+          json:
+            user_id: '{{ user_id }}'
+            region: '{{ region }}'

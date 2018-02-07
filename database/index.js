@@ -1,13 +1,13 @@
 const fake = require('./generateFakeData.js');
 const user = require('./Users.js');
 const login = require('./Login.js');
-const saved = require('./VideoSaved.js');
-const watched = require('./VideoWatched.js');
+const save = require('./VideoSaved.js');
+const watch = require('./VideoWatched.js');
 
 module.exports = {
   fake,
   user,
   login,
-  saved,
-  watched
+  save,
+  watch
 };
