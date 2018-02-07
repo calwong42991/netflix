@@ -42,25 +42,6 @@ class Login {
     })
     .catch((err) => {console.log(err)});
   }
-
-  static login(obj) {
-    this.updateRegion(obj),
-    this.authenticate(obj)
-    .then((userId) => {
-      Promise.all([this.getVideoSaved(userId), this.getVideoWatched(userId)])
-      .then((data) => {
-        console.log('Data to send back to Client Facing Service ', data);
-      })
-      .catch((err) => {
-        console.log('INNER ERROR')
-        return err;
-      })
-    })
-    .catch((err) => {
-      console.log('OUTTER ERROR');
-      return err;
-    })
-  }
 }
 
 module.exports = Login;
