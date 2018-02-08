@@ -22,7 +22,8 @@ class Watched {
     const queryGetAll = 'SELECT * FROM video_watched WHERE user_id = $1';
     return db.any(queryGetAll, [user_id])
     .then((data) => {
-      return data;
+      const videoWatched = {videoWatched: data}
+      return videoWatched;
     })
     .catch((error) => {
       console.log(error);

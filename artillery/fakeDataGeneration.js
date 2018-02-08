@@ -92,9 +92,36 @@ const generateFakeLog = (context, events, done) => {
   return done();
 }
 
+const generateVideoSaved = (context, events, done) => {
+  const user_id = faker.random.number({min:1, max:10000000});
+  const video_id = faker.random.number({min:1, max:10000000});
+  const saved_time = `${faker.random.number({min:1, max:2})} hour ${faker.random.number({min:1, max:59})} min ${faker.random.number({min:1, max:59})} seconds`;
+
+
+  context.vars.user_id = user_id;
+  context.vars.video_id = video_id;
+  context.vars.saved_time = saved_time;
+
+  return done();
+}
+
+const generateVideoWatched = (context, events, done) => {
+  const user_id = faker.random.number({min:1, max:10000000});
+  const video_id = faker.random.number({min:1, max:10000000});
+  const rating = faker.finance.amount(1,5,1);
+
+
+  context.vars.user_id = user_id;
+  context.vars.video_id = video_id;
+  context.vars.rating = rating;
+
+  return done();
+}
 
 module.exports = {
   generateUser,
   calculateResponseTimeDelta,
-  generateFakeLog
+  generateFakeLog,
+  generateVideoSaved,
+  generateVideoWatched
 }

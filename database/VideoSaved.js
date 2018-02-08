@@ -22,7 +22,8 @@ class Saved {
     const queryGetAll = 'SELECT * FROM video_saved WHERE user_id = $1';
     return db.any(queryGetAll, [user_id])
       .then((data) => {
-        return data
+        const videoSaved = {videoSaved: data}
+        return videoSaved
       })
       .catch((error) => {
         console.log(error)
