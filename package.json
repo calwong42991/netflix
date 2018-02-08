@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "start": "nodemon server/index.js",
+    "start": "nodemon server/server.js",
     "initdb": "psql postgres -U calvinw < schemaTest.sql",
     "fix-memory-limit": "cross-env LIMIT=2048 increase-memory-limit"
   },
@@ -28,9 +28,11 @@
     "express": "^4.16.2",
     "faker": "^4.1.0",
     "file-system": "^2.2.2",
+    "http": "0.0.0",
     "increase-memory-limit": "^1.0.6",
     "moment": "^2.20.1",
     "newrelic": "^2.7.0",
+    "os": "^0.1.1",
     "pg-copy-streams": "^1.2.0",
     "pg-promise": "^7.4.1",
     "redis": "^2.8.0",

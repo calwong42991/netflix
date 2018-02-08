@@ -1,8 +1,8 @@
 config:
-  target: "http://localhost:1337/api"
+  target: "http://localhost:8080/api"
   phases:
     - duration: 1
-      arrivalRate: 100
+      arrivalRate: 1000
   # defaults:
   #   headers:
   #     x-my-service-auth: '987401838271002188298567'
