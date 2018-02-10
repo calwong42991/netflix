@@ -31,7 +31,6 @@ class Watch {
     const {user_id} = req.body;
     models.watch.getAllVideoWatched({user_id})
       .then((data) => {
-        console.log(data);
         res.send(data);
       })
       .catch((error) => {

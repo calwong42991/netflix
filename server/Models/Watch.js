@@ -12,6 +12,10 @@ class Watch {
   static getAllVideoWatched({user_id}) {
     return db.watch.getAllVideoWatched({user_id});
   }
+
+  static index(){
+    return db.watch.index();
+  }
 }
 
 module.exports = Watch;

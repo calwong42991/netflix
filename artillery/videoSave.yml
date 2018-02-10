@@ -8,24 +8,6 @@ config:
   #     x-my-service-auth: '987401838271002188298567'
   processor: './fakeDataGeneration.js'
 scenarios:
-  - name: 'Add User'
-    flow:
-      - function: 'generateUser'
-      - post:
-          url: '/signup'
-          json:
-            profile_name: '{{ profile_name }}'
-            password: '{{ password }}'
-            email: '{{ email }}'
-            region: '{{ region }}'
-            preferences: '{{ preferences }}'
-      - post:
-          url: '/login'
-          json:
-            profile_name: '{{ profile_name }}'
-            password: '{{ password }}'
-      - log: 'Add User'
-
   - name: 'Video Save'
     flow:
       - function: 'generateVideoSaved'

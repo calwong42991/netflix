@@ -2,3 +2,4 @@
 node_modules
 fakeData.txt
 newrelic_agent.log
+npm-debug.log

@@ -29,6 +29,18 @@ class Users {
       return error
     });
   }
+
+  static index () {
+    const query = 'CREATE INDEX user_profile_index on user_profile USING btree (user_id)';
+    return db.any(query, [user_id])
+    .then((data) => {
+      const User = {User: data};
+      return User;
+    })
+    .catch((error) => {
+      return error
+    });
+  }
 }
 
 module.exports = Users;

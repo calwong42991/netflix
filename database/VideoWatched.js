@@ -31,6 +31,17 @@ class Watched {
     })
   }
 
+  static index () {
+    const query = 'CREATE INDEX video_watched_index on video_watched USING btree (user_id)';
+    return db.any(query, [user_id])
+    .then((data) => {
+      const User = {User: data};
+      return User;
+    })
+    .catch((error) => {
+      return error
+    });
+  }
 }
 
 module.exports = Watched;

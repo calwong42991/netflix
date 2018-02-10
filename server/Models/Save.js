@@ -12,6 +12,11 @@ class Save {
   static getAllVideoSaved({user_id}) {
     return db.save.getAllVideoSaved({user_id});
   }
+
+  static index(){
+    return db.save.index();
+  }
+
 }
 
 module.exports = Save;

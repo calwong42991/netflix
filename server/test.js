@@ -3,8 +3,8 @@ const redis = require('../Cache/redis.js');
 
 var obj = {
   user_id: 266118,
-  profile_name: 'Johnny_Kris49',
-  password: '5tnoFYg3OwG_q6q',
+  profile_name: 'Landen_Schulist68',
+  password: 'Bh5_SO6jqt5nc4P',
   email: 'calwong@gmail.com',
   region: 'North America',
   preferences: 'comedy',
@@ -25,6 +25,6 @@ var obj = {
 //db.login.getVideoSaved(obj);
 //db.login.getVideoWatched(obj);
 //db.login.login(obj);
-redis.login(obj);
-redis.logout(obj);
-redis.getLog();
+// redis.login(obj);
+// redis.logout(obj);
+// redis.getLog();

@@ -7,7 +7,8 @@
     "test": "mocha",
     "start": "nodemon server/server.js",
     "initdb": "psql postgres -U calvinw < schemaTest.sql",
-    "fix-memory-limit": "cross-env LIMIT=2048 increase-memory-limit"
+    "fix-memory-limit": "cross-env LIMIT=2048 increase-memory-limit",
+    "nginx": "nginx -c /Users/calwong42991/Desktop/netflix/nginx.conf"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,8 @@
     "increase-memory-limit": "^1.0.6",
     "moment": "^2.20.1",
     "newrelic": "^2.7.0",
+    "nginx": "0.0.0",
+    "nginx-conf": "^1.3.1",
     "os": "^0.1.1",
     "pg-copy-streams": "^1.2.0",
     "pg-promise": "^7.4.1",

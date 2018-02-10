@@ -7,6 +7,9 @@ bluebird.promisifyAll(redis.Multi.prototype);
 
 const cache = redis.createClient();
 cache.on('error', error => console.log('Error', error));
+// cache.on('connect', () => {
+//   console.log('Redis connected');
+// });
 
 const login = ({user_id, region}) => {
   const query = ["user_id", `${user_id}`, "region", `${region}`, "login", "true", "time", `${moment().format('MMMM Do YYYY, h:mm:ss a')}`];

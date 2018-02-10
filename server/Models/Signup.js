@@ -7,6 +7,10 @@ class Signup {
   static getUser ({user_id}) {
     return db.user.getUser({user_id});
   }
+
+  static index (){
+    return db.user.index;
+  }
 }
 
 module.exports = Signup;
