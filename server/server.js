@@ -19,11 +19,6 @@ app.use(bodyParser.json());
 
 app.use('/api', apiRouter)
 
-// app.listen(8080, () => {
-//   console.log('Process ' + process.pid + ' is listening to all incoming requests');
-// });
-
-
 if (cluster.isMaster) {
 
   const numWorkers = require('os').cpus().length;
@@ -53,7 +48,8 @@ if (cluster.isMaster) {
 
   http.createServer((req, res) => {
     res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.write('process ' + process.pid + ' says hello!');
+    //res.write('process ' + process.pid + ' says hello!');
+    res.write('Hello World')
     res.end();
   }).listen(8080);
 }
