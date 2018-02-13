@@ -1,5 +1,8 @@
 const expect  = require('chai').expect;
 const request = require('request');
+const chaiHttp = require('chai-http');
+const chai = require('chai');
+const server = require('../server/server');
 
 describe('Main Page', function() {
   it('sign up', function(done) {
@@ -16,14 +19,14 @@ describe('Main Page', function() {
     });
   });
 
-  it('Login redis', function(done) {
+  it('Login with time stamp', function(done) {
     request('http://localhost:8080/api/login/redis' , function(error, response, body) {
       expect(response.statusCode).to.equal(200);
       done();
     });
   });
 
-  it('Logout redis', function(done) {
+  it('Logout with time stamp', function(done) {
     request('http://localhost:8080/api/logout/redis' , function(error, response, body) {
       expect(response.statusCode).to.equal(200);
       done();
