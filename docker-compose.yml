@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  reddis:
+    image: redis:alpine
+    container_name: test_redis
+  web:
+    image: netflix/node-server:1.0
+    ports:
+      - "8080:8080"
+
+  # nginx:
+  #   build: nginx
+  #   links:
+  #     - app1:app1
+  #     - app2:app2
+  #     - app3:app3
+  #   ports:
+  #     - "80:80"
+  #
+  # app1:
+  #   build: .
+  #   environment:
+  #     PORT: 8080
+  #   ports:
+  #     - "8000:8080"
+  # app2:
+  #   build: .
+  #   environment:
+  #     PORT: 8080
+  #   ports:
+  #     - "8001:8080"
+  # app3:
+  #   build: .
+  #   environment:
+  #     PORT: 8080
+  #   ports:
+  #     - "8002:8080"

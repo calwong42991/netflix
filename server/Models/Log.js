@@ -1,3 +1,5 @@
+'use strict';
+
 const redis = require('../../Cache/redis.js');
 
 class Log {

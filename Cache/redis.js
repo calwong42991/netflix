@@ -1,11 +1,12 @@
 const redis = require('redis');
-const bluebird = require('bluebird');
 const moment = require('moment');
 
-bluebird.promisifyAll(redis.RedisClient.prototype);
-bluebird.promisifyAll(redis.Multi.prototype);
+// const host = process.env.REDIS_PORT_6379_TCP_ADDR || '127.0.01';
+// const port = process.env.REDIS_PORT_6379_TCP_PORT || 6379;
+// const dockerEnvironment = process.env.REDIS.ENV ? { host: }
 
-const cache = redis.createClient();
+const cache = redis.createClient({host: 'test_redis'});
+
 cache.on('error', error => console.log('Error', error));
 // cache.on('connect', () => {
 //   console.log('Redis connected');

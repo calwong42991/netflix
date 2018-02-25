@@ -1,0 +1,23 @@
+FROM node:8.9.4-slim
+
+# Working directory for application
+WORKDIR /Users/calwong42991/Desktop/netflix
+
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
+COPY ./package*.json ./
+
+RUN npm install nodemon -g
+
+RUN npm install
+# If you are building your code for production
+# RUN npm install --only=production
+
+# Get all the code needed to run the app
+COPY . .
+
+# Binds to port 8080
+EXPOSE 8080
+
+CMD [ "npm", "start" ]

@@ -1,12 +1,13 @@
+'use strict';
+
 const bodyParser = require('body-parser');
 const express = require('express');
 const http = require('http');
 const axios = require('axios');
-const db = require('../database/index.js');
 const newrelic = require('newrelic');
-const redis = require('../Cache/redis.js');
 const apiRouter = require('./apiRoutes');
-const cluster = require('cluster');
+//const cluster = require('cluster');
+const cluster = require('express-cluster');
 const os = require('os')
 
 
@@ -51,7 +52,15 @@ if (cluster.isMaster) {
     res.write('Hello World')
     res.end();
   }).listen(8080);
+  // app.listen(8080);
 
 }
+  // //
+  // http.createServer((req, res) => {
+  //   res.writeHead(200, {'Content-Type': 'text/plain'});
+  //   //res.write('process ' + process.pid + ' says hello!');
+  //   res.write('Hello World')
+  //   res.end();
+  // }).listen(8080);
 
 module.exports = app;

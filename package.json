@@ -27,6 +27,7 @@
     "body-parser": "^1.18.2",
     "cross-env": "^5.0.5",
     "express": "^4.16.2",
+    "express-cluster": "0.0.5",
     "faker": "^4.1.0",
     "file-system": "^2.2.2",
     "http": "0.0.0",

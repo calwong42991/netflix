@@ -34,7 +34,7 @@ var fakeUser = function(t, pageIndex){
   let data = null;
   if (pageIndex < 1000) {
     data = [];
-    for(var i = 0; i < 4000; i++){
+    for(var i = 0; i < 10000; i++){
       data.push({
         profile_name: faker.internet.userName(),
         password: faker.internet.password(),

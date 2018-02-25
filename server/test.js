@@ -10,7 +10,7 @@ var obj = {
   preferences: 'comedy',
 }
 
-// var promise1 = db.fake.createUser();
+db.fake.createUser();
 // var promise2 = db.fake.createVideoSaved();
 // var promise3 = db.fake.createVideoWatched();
 //

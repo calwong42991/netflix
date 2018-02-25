@@ -1,4 +1,4 @@
-const fake = require('./generateFakeData.js');
+const fake = require('./GenerateFakeData.js');
 const user = require('./Users.js');
 const login = require('./Login.js');
 const save = require('./VideoSaved.js');
