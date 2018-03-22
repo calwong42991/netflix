@@ -48,19 +48,10 @@ if (cluster.isMaster) {
 } else {
   http.createServer((req, res) => {
     res.writeHead(200, {'Content-Type': 'text/plain'});
-    //res.write('process ' + process.pid + ' says hello!');
     res.write('Hello World')
     res.end();
   }).listen(8080);
-  // app.listen(8080);
 
 }
-  // //
-  // http.createServer((req, res) => {
-  //   res.writeHead(200, {'Content-Type': 'text/plain'});
-  //   //res.write('process ' + process.pid + ' says hello!');
-  //   res.write('Hello World')
-  //   res.end();
-  // }).listen(8080);
 
 module.exports = app;
