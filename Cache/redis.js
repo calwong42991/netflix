@@ -1,16 +1,9 @@
 const redis = require('redis');
 const moment = require('moment');
 
-// const host = process.env.REDIS_PORT_6379_TCP_ADDR || '127.0.01';
-// const port = process.env.REDIS_PORT_6379_TCP_PORT || 6379;
-// const dockerEnvironment = process.env.REDIS.ENV ? { host: }
-
 const cache = redis.createClient({host: 'test_redis'});
 
 cache.on('error', error => console.log('Error', error));
-// cache.on('connect', () => {
-//   console.log('Redis connected');
-// });
 
 const login = ({user_id, region}) => {
   const query = ["user_id", `${user_id}`, "region", `${region}`, "login", "true", "time", `${moment().format('MMMM Do YYYY, h:mm:ss a')}`];

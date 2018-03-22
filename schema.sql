@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS netflix;
 
 CREATE DATABASE netflix;
 
-\connect netflix;
+connect netflix;
 
 CREATE EXTENSION postgis;
 
